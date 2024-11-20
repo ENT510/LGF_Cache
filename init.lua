@@ -24,8 +24,8 @@ end
 
 --- Retrieves a cache module from the CacheEnvironment by its name.
 ---@param name string The name of the cache module to retrieve.
----@return table|nil The cache module if found, or nil if not found.
-function getCache(name)
+---@return value table The cache module if found, or nil if not found.
+function GetCache(name)
     return CacheEnvironment[name]
 end
 

@@ -10,5 +10,4 @@ description 'Cache resource'
 shared_script {
     "init.lua",
     "cache.lua",
-
 }
