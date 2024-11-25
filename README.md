@@ -175,10 +175,11 @@ You can register a listener to monitor changes to specific cache keys. The liste
 ```lua
 -- Register a listener for changes on the "playerHealt" cache entry
 Cache:onChangeValue("playerHealt", function(action, oldValue, newValue)
-    print("Action: " .. action)  -- Output: "set", "remove", or "update"
-    print("Old Value: " .. tostring(oldValue))  -- Output the old value
-    print("New Value: " .. tostring(newValue))  -- Output the new value
+    print(("Action: %s"):format(action))         -- Output: "set", "remove", or "update"
+    print(("Old Value: %s"):format(oldValue)) -- Output the old value
+    print(("New Value: %s"):format(newValue)) -- Output the new value
 end)
+
 
 -- Setting a new value for "playerHealt", which will trigger the listener
 Cache:set("playerHealt", 150)
@@ -224,23 +225,15 @@ CreateThread(function()
     Cache:set("playerHealt", 100)
     Cache:set("username", "ENT510")
 
-
-    local scoreBeforeClear = Cache:get("playerHealt")
-    local usernameBeforeClear = Cache:get("username")
-
-    print(scoreBeforeClear)    -- Output: 100
-    print(usernameBeforeClear) -- Output: ENT510
+    print(("Score before clear: %s"):format(Cache:get("playerHealt")))    -- Output: 100
+    print(("Username before clear: %s"):format(Cache:get("username")))        -- Output: ENT510
 
     Wait(1000)
 
     Cache:clear()
 
-
-    local scoreAfterClear = Cache:get("playerHealt")
-    local usernameAfterClear = Cache:get("username")
-
-    print(scoreAfterClear)    -- Output: nil
-    print(usernameAfterClear) -- Output: nil
+    print(("Score after clear: %s"):format(tostring( Cache:get("playerHealt"))))      -- Output: nil
+    print(("Username after clear: %s"):format(tostring(Cache:get("username")))) -- Output: nil
 end)
 
 ```
