@@ -9,5 +9,10 @@ description 'Cache resource'
 
 shared_script {
     "init.lua",
-    "cache.lua",
+    "Modules/Shared/cache.lua",
+}
+
+
+client_scripts {
+    "Modules/Client/cacheHandler.lua",
 }

@@ -29,7 +29,6 @@ function GetCache(name)
     return CacheEnvironment[name]
 end
 
-exports('cacheManager', function()
-    return CacheEnvironment
+exports('cacheManager', function(module)
+    return GetCache(module) or GetCache("Cache")
 end)
-
