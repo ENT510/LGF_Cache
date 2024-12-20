@@ -33,7 +33,7 @@ end
 ---@param type string
 ---@param callback fun(...: any): void
 function CacheHandler:onCacheChange(type, callback)
-    Citizen.CreateThread(function()
+    CreateThread(function()
         local lastMountId = nil
         local lastIsOnMount = nil
         local lastWeaponHash = nil
