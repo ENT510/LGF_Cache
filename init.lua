@@ -30,5 +30,5 @@ function GetCache(name)
 end
 
 exports('cacheManager', function(module)
-    return GetCache(module) or GetCache("Cache")
+    return module and GetCache(module) or GetCache("Cache")
 end)
